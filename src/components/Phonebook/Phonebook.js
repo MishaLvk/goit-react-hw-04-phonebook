@@ -16,14 +16,12 @@ export default function Phonebook() {
   }, [contacts]);
 
   const addContacts = formData => {
-    console.log(formData);
     const { name, number } = formData;
     const contact = {
       name: name,
       number: number,
       key: nanoid(),
     };
-    console.log(checkName(name));
     if (checkName(name)) {
       alert(name + ' is already in contacts');
       return false;
@@ -42,11 +40,7 @@ export default function Phonebook() {
   };
 
   const deleteContact = contactKey => {
-    console.log('до  ' + contacts.length);
-    console.log('до  ' + contacts);
     setContacts(contacts.filter(contact => contact.key !== contactKey));
-    console.log('після ' + contacts.length);
-    console.log('до  ' + contacts);
   };
 
   const changeFilter = event => {
