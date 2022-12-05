@@ -62,13 +62,14 @@ export default function Phonebook() {
       <ContactForm addContacts={addContacts} />
       <h2>Contacts</h2>
       {contacts.length !== 0 && (
-        <Filter value={filter} onChange={changeFilter} />
+        <>
+          <Filter value={filter} onChange={changeFilter} />
+          <ContactList
+            filterContacts={getfilterContacts()}
+            deleteContact={deleteContact}
+          />
+        </>
       )}
-
-      <ContactList
-        filterContacts={getfilterContacts()}
-        deleteContact={deleteContact}
-      />
     </Container>
   );
 }
