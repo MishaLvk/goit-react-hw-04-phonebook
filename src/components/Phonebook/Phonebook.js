@@ -17,15 +17,17 @@ export default function Phonebook() {
 
   const addContacts = formData => {
     const { name, number } = formData;
+
+    if (checkName(name)) {
+      alert(name + ' is already in contacts');
+      return false;
+    }
+
     const contact = {
       name: name,
       number: number,
       key: nanoid(),
     };
-    if (checkName(name)) {
-      alert(name + ' is already in contacts');
-      return false;
-    }
 
     setContacts(prevContacts => [...prevContacts, contact]);
     return true;
